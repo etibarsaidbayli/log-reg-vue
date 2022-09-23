@@ -1,21 +1,18 @@
-<template>  
-        <div>
-            <h1>Login page</h1>
-            <Login/>
-    </div>
+<template>
+  <div>
+    <h1>Login page</h1>
+    <UserForm title="girish" />
+  </div>
 </template>
 
 <script>
-import Login from '../components/Login.vue';
+import UserForm from "../components/UserForm.vue";
+
 export default {
-    components:{
-        Login
-    }
-}
-
-
+  components: {
+    UserForm,
+  },
+};
 </script>
 
-<style>
-    
-</style>
+<style></style>

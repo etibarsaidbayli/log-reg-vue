@@ -1,17 +1,19 @@
 <template>
         <div>
         <h1> Registration page</h1>
-            <Registration/>
+        <UserForm title="qeydiyyat" />
     </div>
     <Form/>
 </template>
 
 <script>
-import Registration from '../components/Registration.vue';
+import UserForm from '../components/UserForm.vue';
+
 export default {
     components:{
-        Registration
-    }
+    UserForm
+},
+
 }
 
 
