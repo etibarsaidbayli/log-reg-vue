@@ -16,7 +16,8 @@
     components: {
     Navbar,
     
-}
+}, 
+
   }
 </script>
 

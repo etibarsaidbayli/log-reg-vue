@@ -1,17 +1,12 @@
 <template>
   <form id="form" @submit.prevent>
     <input
-      :value="email"
-      @input="(event) => (email = event.target.value)"
+      v-model="email"
+      @input="changeError"
       type="email"
       placeholder="email"
     />
-    <input
-      :value="pass"
-      @input="(event) => (pass = event.target.value)"
-      type="password"
-      placeholder="password"
-    />
+    <input v-model="pass" type="password" placeholder="password" />
     <button @click="register">
       {{ title }}
     </button>
@@ -20,7 +15,7 @@
     email ve ya parol sehf daxil olunub
   </h1>
   <h1 v-if="isError && this.title === 'qeydiyyat'">
-    bele istifadechi artiq var !
+     {{this.email}} istifadechi artiq var !
   </h1>
 </template>
 
@@ -74,6 +69,9 @@ export default {
             // ..
           });
       }
+    },
+    changeError() {
+      this.isError = false;
     },
   },
 };

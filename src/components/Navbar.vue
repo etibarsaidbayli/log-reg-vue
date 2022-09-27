@@ -1,10 +1,10 @@
 <template>
   <nav class="navbar">
     <div class="navbar__btns">
-      <button @click="$router.push('/login')">Girish</button>
-      <button @click="$router.push('/registration')">Qeydiyyat</button>
-      <button v-if="!isLogOut"  @click="logOut">cixish</button>
-      <button v-else="isLogout"  @click="logOut">chixildi !</button>
+      <button @click="logIn">Girish</button>
+      <button @click="registration">Qeydiyyat</button>
+      <button v-if="!isLogOut" @click="logOut">cixish</button>
+      <button v-else="isLogout" @click="logOut">chixildi !</button>
     </div>
   </nav>
 </template>
@@ -12,23 +12,32 @@
 <script>
 import { getAuth, signOut } from "firebase/auth";
 export default {
-    data() {
-        return {
-            isLogOut:false
-        }
-    },
+  data() {
+    return {
+      isLogOut: false,
+    };
+  },
   methods: {
     logOut() {
       console.log("chixish ");
       const auth = getAuth();
       signOut(auth)
         .then(() => {
-            this.isLogOut=true
+          this.isLogOut = true;
         })
         .catch((error) => {
-          alert(error)
+          alert(error);
         });
+
       this.$router.push("/");
+    },
+    logIn() {
+      this.$router.push("/login");
+      this.isLogOut = false;
+    },
+    registration() {
+      this.$router.push("/registration");
+      this.isLogOut = false;
     },
   },
 };
@@ -51,5 +60,10 @@ export default {
   font-size: 18px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.navbar__btns button:disabled {
+  background: gray;
+  color: white;
 }
 </style>
